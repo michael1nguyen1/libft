@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 19:04:17 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/10/30 18:25:50 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/10/31 17:13:48 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/01 12:48:53 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libc.h"
 
-int	ft_isascii(int n) 
+void ft_bzero(void *s, size_t n)
 {
-	if (n >= 0 && n <= 127)
-		return (1);
-	else
-		return (0);
+char * d;	
+size_t i;
+i = 0;
+d = s;
+
+while (i < n)
+	{
+	d[i] = '\0';
+	i++;
+	}
 }
 
-// int main (void)
+// int main(void)
 // {
-// int n = '╥';
-// // int n = 'a';
-// if (ft_isascii(n))
-// 	printf("%c is ascii", n);
-// else 
-// 	printf("%c is not ascii", n);
-
+// char s[] = "what";
+// size_t n = 3;
+// // printf("%s", ft_bzero(s,n))
+// // printf("%s", bzero(s,n))
 // }

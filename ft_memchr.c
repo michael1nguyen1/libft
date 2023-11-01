@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 19:04:17 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/10/30 18:25:50 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/01 13:18:12 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/01 15:59:33 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libc.h"
 
-int	ft_isascii(int n) 
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (n >= 0 && n <= 127)
-		return (1);
-	else
-		return (0);
+	size_t		i;
+	const char	*d;
+
+	d = s;
+	i = 0;
+	while (i < n)
+	{
+		if (d[i] == c)
+			return ((void *) &s[i]);
+		i++;
+	}
+	return (NULL);
 }
-
-// int main (void)
-// {
-// int n = '╥';
-// // int n = 'a';
-// if (ft_isascii(n))
-// 	printf("%c is ascii", n);
-// else 
-// 	printf("%c is not ascii", n);
-
-// }
