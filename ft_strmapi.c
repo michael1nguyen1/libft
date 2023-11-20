@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/13 17:26:07 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 15:43:28 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	needlelen;
+	size_t	i;
+	char	*str;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
+	i = 0;
+	if (s == NULL)
+		return (ft_calloc(1, 1));
+	str = ft_strdup(s);
+	if (!str)
 		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	while (s[i])
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		str[i] = (*f)(i, str[i]);
+		i++;
 	}
-	return (NULL);
+	return (str);
 }

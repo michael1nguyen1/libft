@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/13 18:20:04 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:37:25 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	size_t	needlelen;
+	size_t	i;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	i = 0;
+	if (s == NULL)
+		return ;
+	while (s[i])
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		(*f)(i, &s[i]);
+		i++;
 	}
-	return (NULL);
 }

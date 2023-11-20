@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/15 12:37:41 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:34:42 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+void
+	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	size_t	needlelen;
-
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	if (!del)
+		return ;
+	if (lst)
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		(*del)(lst->content);
+		free(lst);
 	}
-	return (NULL);
 }

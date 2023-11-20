@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/10 13:31:00 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 15:41:12 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	needlelen;
+	char	*s3;
+	int		i;
+	int		k;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
+	k = 0;
+	i = 0;
+	if (!s1 || !s2)
 		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!s3)
+		return (NULL);
+	while (s1[i])
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		s3[k++] = s1[i++];
 	}
-	return (NULL);
+	i = 0;
+	while (s2[i])
+	{
+		s3[k++] = s2[i++];
+	}
+	s3[k] = '\0';
+	return (s3);
 }

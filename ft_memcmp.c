@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/02 12:45:54 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:35:53 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	needlelen;
+	size_t	i;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	i = 0;
+	while (i < n)
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		if (*(unsigned char *)(s1 + i) != *(unsigned char *)(s2 + i))
+			return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
+		i++;
 	}
-	return (NULL);
+	return (0);
 }

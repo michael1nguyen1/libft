@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:29:08 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/10/30 17:53:09 by linhnguy         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:50:34 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalpha(int n)
 {
@@ -19,13 +17,3 @@ int	ft_isalpha(int n)
 	else
 		return (0);
 }
-
-/*int main (void)
-{
-int n = '_';
-if (ft_isalpha (n))
-	printf ("%c is an alpha", n);
-else 
-	printf ("%c is not an alpha", n);
-return (0);
-}*/

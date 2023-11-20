@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/15 16:39:09 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 17:51:07 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 {
-	size_t	needlelen;
+	t_list	*first;
+	t_list	*new;
+	void	*tmp;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
+	if (!f || !del)
 		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	first = NULL;
+	while (lst)
 	{
-		if (*h == *n)
+		tmp = (*f)((lst -> content));
+		new = (ft_lstnew(tmp));
+		if (!new)
 		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
+			ft_lstclear(&first, del);
+			del(tmp);
+			return (NULL);
 		}
-		h++;
-		len--;
+		ft_lstadd_back(&first, new);
+		lst = lst -> next;
 	}
-	return (NULL);
+	return (first);
 }

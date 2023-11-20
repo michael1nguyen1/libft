@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/03 13:10:46 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:36:11 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	needlelen;
+	size_t	i;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	if (dest == 0 && src == 0)
+		return (dest);
+	if (dest > src)
 	{
-		if (*h == *n)
+		i = n;
+		while (i > 0)
 		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
+			*((char *)dest + i - 1) = *((char *)src + i - 1);
+			i--;
 		}
-		h++;
-		len--;
 	}
-	return (NULL);
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			*((char *)dest + i) = *((char *)src + i);
+			i++;
+		}
+	}
+	return (dest);
 }

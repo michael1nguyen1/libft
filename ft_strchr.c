@@ -3,35 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:06:27 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/10/30 17:58:21 by linhnguy         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:37:15 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char* ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-int i;
-i = 0;
+	size_t		i;
+	char		t;
+	size_t		len;
 
-while (s[i])
+	i = 0;
+	t = c;
+	len = ft_strlen(s);
+	while (i <= len)
 	{
-	if (s[i] == c)
+		if (s[i] == t)
 		{
 			return ((char *)&s[i]);
 		}
-			i++;
+		i++;
 	}
 	return (NULL);
 }
-
-// int main (void)
-// {
-// const char s[] = "Smart";
-// int c = 'p';
-// printf("%s" ,ft_strchr(s, c));
-// return (0);
-// }

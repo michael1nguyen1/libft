@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/14 19:12:29 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:35:30 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+int	ft_lstsize(t_list *lst)
 {
-	size_t	needlelen;
+	int	length;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	length = 0;
+	while (lst != NULL)
 	{
-		if (*h == *n)
-		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
-		}
-		h++;
-		len--;
+		lst = lst -> next;
+		length++;
 	}
-	return (NULL);
+	return (length);
 }

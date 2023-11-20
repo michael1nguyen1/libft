@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 17:09:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/18 20:05:07 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/04 13:59:40 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 18:37:46 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *h, const char *n, size_t len)
-
+size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 {
-	size_t	needlelen;
+	size_t	i;
 
-	if (*n == 0)
-		return ((char *)h);
-	if (len == 0)
-		return (NULL);
-	needlelen = ft_strlen(n);
-	while (*h && len >= needlelen)
+	i = 0;
+	if (dsize > 0)
 	{
-		if (*h == *n)
+		while (src[i] && i < dsize - 1)
 		{
-			if (ft_strncmp(h, n, needlelen) == 0)
-				return ((char *)h);
+			dst[i] = src[i];
+			i++;
 		}
-		h++;
-		len--;
+		dst[i] = 0;
 	}
-	return (NULL);
+	while (src[i])
+		i++;
+	return (i);
 }

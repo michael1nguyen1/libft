@@ -3,33 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:13:48 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/01 12:48:53 by linhnguy         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:52:36 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-char * d;	
-size_t i;
-i = 0;
-d = s;
+	char	*d;
+	size_t	i;
 
-while (i < n)
+	i = 0;
+	d = s;
+	while (i < n)
 	{
-	d[i] = '\0';
-	i++;
+		d[i] = '\0';
+		i++;
 	}
 }
-
-// int main(void)
-// {
-// char s[] = "what";
-// size_t n = 3;
-// // printf("%s", ft_bzero(s,n))
-// // printf("%s", bzero(s,n))
-// }

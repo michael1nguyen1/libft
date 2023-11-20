@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
+/*   By: linhnguy <linhnguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 21:15:19 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/17 15:41:46 by linhnguy         ###   ########.fr       */
+/*   Created: 2023/11/10 16:50:06 by linhnguy          #+#    #+#             */
+/*   Updated: 2023/11/17 15:05:01 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (s[i])
+	if (s1 == NULL || set == NULL)
+		return (ft_calloc(1, 1));
+	j = ft_strlen(s1);
+	while (ft_strchr(set, s1[i]) && s1[i])
 		i++;
-	return (i);
+	while (ft_strchr(set, s1[j]))
+		j--;
+	return (ft_substr(s1, i, j - i + 1));
 }
