@@ -6,15 +6,15 @@
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 15:41:52 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/17 18:34:34 by linhnguy         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:26:15 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_b_list **lst, void (*del)(void*))
 {
-	t_list	*tmp;
+	t_b_list	*tmp;
 
 	if (!del || !lst)
 		return ;

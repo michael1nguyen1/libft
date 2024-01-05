@@ -6,15 +6,15 @@
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 21:00:48 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/17 18:34:10 by linhnguy         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:26:15 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_b_list **lst, t_b_list *new)
 {
-	t_list	*last;
+	t_b_list	*last;
 
 	if (!new)
 		return ;

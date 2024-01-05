@@ -6,13 +6,13 @@
 /*   By: linhnguy <linhnguy@hive.student.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 19:12:29 by linhnguy          #+#    #+#             */
-/*   Updated: 2023/11/17 18:35:30 by linhnguy         ###   ########.fr       */
+/*   Updated: 2024/01/05 14:26:15 by linhnguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_b_list *lst)
 {
 	int	length;
 
